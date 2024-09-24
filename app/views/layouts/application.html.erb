@@ -17,9 +17,39 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+  <body class="bg-white">
+    <header class="mb-4">
+      <nav class="flex items-center justify-between flex-wrap bg-gray-100 py-3 lg:px-10 px-3 text-gray-700 border-b border-gray-400">
+        <div class="flex items-center flex-no-shrink mr-6">
+          <%= link_to "AOTT", root_path, class:"link text-xl tracking-tight font-semibold" %>
+        </div>
+        <div class="w-full block lg:flex-1 lg:flex items-center text-center lg:text-left">
+          <div class="w-full block lg:flex lg:flex-row lg:flex-1 mt-2 lg:mt-0 text-center lg:text-left lg:justify-end items-center">
+            <% if user_signed_in? %>
+              <p class="lg:mr-2 px-4">Welcome, <%= current_user.username %></p>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"btn btn-default mb-2 lg:mr-2 lg:mb-0 block", data: {turbo_method: :delete} %>
+            <% else %>
+              <%= link_to "Login", new_user_session_path, class:"btn btn-default mb-2 lg:mr-2 lg:mb-0 block" %>
+              <%= link_to "Sign Up", new_user_registration_path, class:"btn btn-default block" %>
+            <% end %>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <% flash.each do |type, message| %>
+      <% if type == "alert" %>
+        <div class="bg-red-500">
+          <div class="container px-2 mx-auto py-4 text-white text-center font-medium font-sans"><%= message %></div>
+        </div>
+      <% end %>
+      <% if type == "notice" %>
+        <div class="bg-green-500">
+          <div class="container px-2 mx-auto py-4 text-white text-center font-medium font-sans"><%= message %></div>
+        </div>
+      <% end %>
+    <% end %>
+    <main class="lg:px-10 px-4">
+      <%= content_for?(:content) ? yield(:content) : yield %>
+    </main>
   </body>
 </html>
