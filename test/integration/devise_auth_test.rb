@@ -1,6 +1,5 @@
 class DeviseAuthTest < ActionDispatch::IntegrationTest
-    
-	setup do
+  setup do
     @user = users(:one)
   end
 
