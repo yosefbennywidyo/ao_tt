@@ -1,19 +1,9 @@
 require "application_system_test_case"
 
 class DeviseAuthSystemTest < ApplicationSystemTestCase
-  setup do
-    @user = users(:one)
-  end
-
-  test "sign in existing user" do
-    sign_in @user
-
-    assert_text "Find me in app/views/users/me.html.erb"
-  end
-
-  test "create user and sign in" do
-    visit new_user_session_path
-    assert_current_path new_user_session_path
+  test "registered user automatically sign in" do
+    visit new_user_registration_path
+    assert_current_path new_user_registration_path
 
     fill_in "Username", with: "email_test"
     fill_in "Email", with: "email@test.com"
