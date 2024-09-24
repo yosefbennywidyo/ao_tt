@@ -6,7 +6,7 @@ class DeviseAuthSystemTest < ApplicationSystemTestCase
   end
 
   test "sign in existing user" do
-    sign_in user
+    sign_in @user
 
     visit new_user_session_path
     assert_current_path new_user_session_path
