@@ -9,10 +9,11 @@
   <table class="table-auto w-full">
     <thead>
       <tr>
-        <th class="text-center w-1/6">Title</th>
-        <th class="text-center w-3/6">Description</th>
-        <th class="text-center w-1/6">Author</th>
-        <th class="text-center w-1/6">Published Year</th> 
+        <th class="text-center w-3/12">Title</th>
+        <th class="text-center w-4/12">Description</th>
+        <th class="text-center w-2/12">Author</th>
+        <th class="text-center w-2/12">Published Year</th> 
+        <th class="text-center w-1/12">Actions</th> 
       </tr>
     </thead>
     <tbody>
@@ -22,6 +23,9 @@
           <td class="text-center"><%= book.description %></td> 
           <td class="text-center"><%= book.author.full_name %></td> 
           <td class="text-center"><%= book.year_of_publication %></td> 
+          <td class="text-center">
+            <%= edit_or_show_button(book) %>
+          </td>
         </tr>
       <% end %>
     </tbody>
