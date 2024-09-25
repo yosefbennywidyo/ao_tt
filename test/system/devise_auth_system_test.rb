@@ -7,6 +7,8 @@ class DeviseAuthSystemTest < ApplicationSystemTestCase
 
     fill_in "Username", with: "email_test"
     fill_in "Email", with: "email@test.com"
+    fill_in "First name", with: "first"
+    fill_in "Last name", with: "last"
     fill_in "Password", with: "new_password"
     fill_in "Password confirmation", with: "new_password"
     click_button "Sign up"
