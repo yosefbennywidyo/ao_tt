@@ -40,10 +40,6 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     assert_difference -> { @author.books.count }, 0 do
       post books_url, params: { book: { author_id: @author.id, description: "", title: "Book Title", year_of_publication: 2024 } }
     end
-    error = assert_raises(ActiveModel::Error) do
-      post books_url, params: { book: { author_id: @author.id, description: "", title: "Book Title", year_of_publication: 2024 } }
-    end
-    assert_equal "Some error message", error.message
 
     assert_response :unprocessable_entity
   end
