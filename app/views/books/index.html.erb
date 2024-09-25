@@ -30,4 +30,8 @@
       <% end %>
     </tbody>
   </table>
+  <div class="text-center">
+    <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
+    <%== pagy_nav(@pagy) %>
+  </div>
 </div>

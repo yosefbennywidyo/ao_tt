@@ -3,7 +3,11 @@ class BooksController < ApplicationController
 
   # GET /books or /books.json
   def index
-    @books = Book.all
+    @pagy, @books = pagy(Book.all, limit: 10)
+
+    rescue Pagy::OverflowError
+      params[:page] = 1
+      retry
   end
 
   # GET /books/1 or /books/1.json
