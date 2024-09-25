@@ -9,13 +9,13 @@ class ApiTokenStrategy < Warden::Strategies::Base
     if user
       success!(user)
     else
-      fail!('Invalid email or password')
+      fail!("Invalid email or password")
     end
   end
 
   private
 
   def api_token
-    env['HTTP_AUTHORIZATION'].to_s.remove('Bearer ')
+    env["HTTP_AUTHORIZATION"].to_s.remove("Bearer ")
   end
 end
