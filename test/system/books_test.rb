@@ -30,9 +30,8 @@ class BooksTest < ApplicationSystemTestCase
   end
 
   test "should update Book" do
-    visit book_url(@first_book)
-    click_on "Edit this book", match: :first
-
+    visit edit_book_url(@first_book.id)
+    
     fill_in "Author", with: @first_book.author_id
     fill_in "Description", with: @first_book.description
     fill_in "Title", with: @first_book.title
@@ -43,8 +42,7 @@ class BooksTest < ApplicationSystemTestCase
   end
 
   test "shouldn't update Book" do
-    visit book_url(@first_book)
-    click_on "Edit this book", match: :first
+    visit edit_book_url(@first_book.id)
 
     fill_in "Author", with: @first_book.author_id
     fill_in "Description", with: ""
