@@ -32,7 +32,7 @@ class BooksTest < ApplicationSystemTestCase
   test "should update Book" do
     visit edit_book_url(@first_book.id)
 
-    fill_in "Author", with: @first_book.author_id
+    fill_in "book_author_id", with: @first_book.author_id
     fill_in "Description", with: @first_book.description
     fill_in "Title", with: @first_book.title
     click_on "Update Book"
@@ -44,7 +44,7 @@ class BooksTest < ApplicationSystemTestCase
   test "shouldn't update Book" do
     visit edit_book_url(@first_book.id)
 
-    fill_in "Author", with: @first_book.author_id
+    fill_in "book_author_id", with: @first_book.author_id
     fill_in "Description", with: ""
     fill_in "Title", with: @first_book.title
     click_on "Update Book"
