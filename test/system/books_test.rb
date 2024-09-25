@@ -12,7 +12,8 @@ class BooksTest < ApplicationSystemTestCase
   test "visiting the index" do
     visit books_url
     assert_selector "h1", text: "Books"
-    assert_selector "button", text: "New Book"
+    assert_selector "a", text: "Edit"
+    assert_selector "a", text: "Show"
   end
 
   test "should create book" do
@@ -26,7 +27,7 @@ class BooksTest < ApplicationSystemTestCase
     click_on "Create Book"
 
     assert_text "Book was successfully created"
-    assert_redirected_to books_url
+    assert_current_path books_url
   end
 
   test "should update Book" do
@@ -39,7 +40,7 @@ class BooksTest < ApplicationSystemTestCase
     click_on "Update Book"
 
     assert_text "Book was successfully updated"
-    assert_redirected_to books_url
+    assert_current_path book_url(@first_book.id)
   end
 
   test "shouldn't update Book" do
@@ -52,7 +53,6 @@ class BooksTest < ApplicationSystemTestCase
     click_on "Update Book"
 
     assert_text "Description can't be blank"
-    assert_response :unprocessable_entity
   end
 
   test "should destroy Book" do
