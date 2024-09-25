@@ -1,0 +1,29 @@
+<div class="w-full">
+  <% content_for :title, "Books" %>
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Books</h1>
+    <%= link_to "New book", new_book_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  </div>
+
+  <table class="table-auto w-full">
+    <thead>
+      <tr>
+        <th class="text-center w-1/6">Title</th>
+        <th class="text-center w-3/6">Description</th>
+        <th class="text-center w-1/6">Author</th>
+        <th class="text-center w-1/6">Published Year</th> 
+      </tr>
+    </thead>
+    <tbody>
+      <% @books.each do |book| %> 
+        <tr>
+          <td class="text-center"><%= book.title %></td>
+          <td class="text-center"><%= book.description %></td> 
+          <td class="text-center"><%= book.author.full_name %></td> 
+          <td class="text-center"><%= book.year_of_publication %></td> 
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

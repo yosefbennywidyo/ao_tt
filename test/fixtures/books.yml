@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+first:
+  title: 1st Book
+  description: First Book
+  year_of_publication: 2024
+  author: one
+
+second:
+  title: 2nd Book
+  description: Second Book
+  year_of_publication: 2024
+  author: two
