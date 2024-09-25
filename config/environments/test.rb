@@ -43,7 +43,7 @@ Rails.application.configure do
   # ActionMailer::Base.deliveries array.
   # mailcatcher
   config.action_mailer.delivery_method = :test
-  
+
   config.active_job.queue_adapter = :sidekiq
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true

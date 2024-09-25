@@ -11,7 +11,7 @@ class BookMailerTest < ActionMailer::TestCase
   end
 
   test "should send new book email when creating a book" do
-    assert_difference 'Sidekiq::Worker.jobs.size', 1 do
+    assert_difference "Sidekiq::Worker.jobs.size", 1 do
       perform_enqueued_jobs do
         Book.create!(author: @author, description: "Book description", title: "Book Title", year_of_publication: 2024)
       end
