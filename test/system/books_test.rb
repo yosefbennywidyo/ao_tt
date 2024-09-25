@@ -12,7 +12,7 @@ class BooksTest < ApplicationSystemTestCase
   test "visiting the index" do
     visit books_url
     assert_selector "h1", text: "Books"
-    assert_selector "button[type="submit"]", text: "Create"
+    assert_selector "button[type='submit']", text: "Create"
   end
 
   test "should create book" do
@@ -21,8 +21,8 @@ class BooksTest < ApplicationSystemTestCase
 
     fill_in "Title", with: @first_book.title
     fill_in "Description", with: @first_book.description
-    select "Year of publication", '2024'
-    select "Author", '2024'
+    select "Year of publication", "2024"
+    select "Author", "2024"
     click_on "Create Book"
 
     assert_text "Book was successfully created"
