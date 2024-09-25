@@ -28,4 +28,8 @@ module BooksHelper
   def render_delete_button(book)
     button_to "Destroy this book", @book, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-red-100 font-medium"
   end
+
+  def render_book_url(book)
+    link_to "#{book.title}", book_url(book), class: "m-2 rounded-sm py-1 px-6 bg-green-100 inline-block font-medium"
+  end
 end
