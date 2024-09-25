@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+  <h1>New Book Available!</h1>
+  <p>Hi <%= @user.first_name + " " + @user.last_name %>,</p>
+  <p>A new book has been added to our collection:</p>
+  <h2><%= @book.title %></h2>
+  <p><%= @book.description %></p>
+  <p>Check here: <%= render_book_url(@book) %></p>
+</body>
+</html>
