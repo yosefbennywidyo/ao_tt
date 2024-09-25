@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "users/index", as: "user_list"
   get "users/me", as: "me"
+  
+  namespace :api do
+    namespace :v1 do
+      get 'books', to: 'books#index'
+    end
+  end
 
   devise_for :users, controllers: {
     sessions: "users/sessions",
