@@ -12,7 +12,7 @@ class BooksTest < ApplicationSystemTestCase
   test "visiting the index" do
     visit books_url
     assert_selector "h1", text: "Books"
-    assert_selector "button[type='submit']", text: "Create"
+    assert_selector "button", text: "New Book"
   end
 
   test "should create book" do
@@ -32,7 +32,8 @@ class BooksTest < ApplicationSystemTestCase
   test "should update Book" do
     visit edit_book_url(@first_book.id)
 
-    fill_in "#book_author_id", with: @first_book.author_id
+    select "#{Author.second.full_name}", from: "book_author_id"
+    select 2022, from: "book_year_of_publication"
     fill_in "Description", with: @first_book.description
     fill_in "Title", with: @first_book.title
     click_on "Update Book"
@@ -44,7 +45,8 @@ class BooksTest < ApplicationSystemTestCase
   test "shouldn't update Book" do
     visit edit_book_url(@first_book.id)
 
-    fill_in "#book_author_id", with: @first_book.author_id
+    select "#{Author.second.full_name}", from: "book_author_id"
+    select 2022, from: "book_year_of_publication"
     fill_in "Description", with: ""
     fill_in "Title", with: @first_book.title
     click_on "Update Book"
