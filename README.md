@@ -3,22 +3,20 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+## Requirements
 
-* Ruby version
+- Ruby: 3.3.4
+- Rails: 7.2.1
+- PostgreSQL
+- Redis server
+- MailCatcher
 
-* System dependencies
+## Start project
 
-* Configuration
+```bash
+bundle # install gems
+bin/dev # run projec
+bin/rails test:all # run all test
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+you can access the project on: `localhost:3000`
