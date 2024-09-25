@@ -4,8 +4,9 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
   setup do
     @first_book = books(:first)
     @second_book = books(:second)
-    @author = users(:one)
-    sign_in @author
+    @user = users(:one)
+    @author = Author.first
+    sign_in @user
   end
 
   test "should get index" do
@@ -19,7 +20,7 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create book" do
-    assert_difference("Book.count") do
+    assert_difference -> {Book.where(author_id: @author.id).count}, 1 do
       post books_url, params: { book: { author_id: @author.id, description: "Book description", title: "Book Title" } }
     end
 
