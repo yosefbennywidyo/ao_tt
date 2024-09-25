@@ -21,8 +21,8 @@ class BooksTest < ApplicationSystemTestCase
 
     fill_in "Title", with: @first_book.title
     fill_in "Description", with: @first_book.description
-    select "Year of publication", "2024"
-    select "Author", "2024"
+    select "2024", from: "Year of publication"
+    select Author.last.full_name, from: "Author"
     click_on "Create Book"
 
     assert_text "Book was successfully created"
@@ -32,7 +32,7 @@ class BooksTest < ApplicationSystemTestCase
   test "should update Book" do
     visit edit_book_url(@first_book.id)
 
-    fill_in "book_author_id", with: @first_book.author_id
+    fill_in "#book_author_id", with: @first_book.author_id
     fill_in "Description", with: @first_book.description
     fill_in "Title", with: @first_book.title
     click_on "Update Book"
@@ -44,7 +44,7 @@ class BooksTest < ApplicationSystemTestCase
   test "shouldn't update Book" do
     visit edit_book_url(@first_book.id)
 
-    fill_in "book_author_id", with: @first_book.author_id
+    fill_in "#book_author_id", with: @first_book.author_id
     fill_in "Description", with: ""
     fill_in "Title", with: @first_book.title
     click_on "Update Book"
