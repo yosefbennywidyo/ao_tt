@@ -31,7 +31,7 @@ class BooksTest < ApplicationSystemTestCase
 
   test "should update Book" do
     visit edit_book_url(@first_book.id)
-    
+
     fill_in "Author", with: @first_book.author_id
     fill_in "Description", with: @first_book.description
     fill_in "Title", with: @first_book.title
