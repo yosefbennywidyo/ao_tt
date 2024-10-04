@@ -37,7 +37,7 @@ gem "bootsnap", require: false
 gem "devise", "~> 4.9"
 gem "tailwindcss-rails", "~> 2.7"
 gem "sidekiq", "~> 7.3"
-gem "pagy", "~> 9.0"
+gem "pagy", "~> 9.1"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
